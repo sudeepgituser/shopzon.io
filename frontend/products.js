@@ -5,7 +5,7 @@
 // wait for this fetch to finish before it can use PRODUCTS -- that's why
 // we track a "ready" promise other scripts can wait on.
 
-const API_BASE_URL = "http://127.0.0.1:8000/api";
+const API_BASE_URL = window.location.origin + "/api";
 
 // Starts empty. Gets filled in once the fetch below completes.
 let PRODUCTS = [];
