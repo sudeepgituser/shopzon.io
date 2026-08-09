@@ -1,0 +1,386 @@
+[
+{
+  "model": "products.product",
+  "pk": 1,
+  "fields": {
+    "title": "Toys under ₹1,999",
+    "price": "1499.00",
+    "original_price": "1999.00",
+    "rating": "4.5",
+    "review_count": 245,
+    "badge": "best-seller",
+    "image": "box3_image.jpg",
+    "category": "toys",
+    "description": "A fun selection of toys, all priced under ₹2,000.",
+    "stock_quantity": 10
+  }
+},
+{
+  "model": "products.product",
+  "pk": 2,
+  "fields": {
+    "title": "Amazon Bed Lamp",
+    "price": "1499.00",
+    "original_price": null,
+    "rating": "4.2",
+    "review_count": 89,
+    "badge": null,
+    "image": "lamp_real.jpg",
+    "category": "lamp",
+    "description": "A soft-glow bedside lamp with adjustable brightness.",
+    "stock_quantity": 0
+  }
+},
+{
+  "model": "products.product",
+  "pk": 3,
+  "fields": {
+    "title": "Clothes Section",
+    "price": "1999.00",
+    "original_price": null,
+    "rating": "4.0",
+    "review_count": 512,
+    "badge": "amazons-choice",
+    "image": "box9_image.jpg",
+    "category": "clothes",
+    "description": "Everyday clothing basics for men and women.",
+    "stock_quantity": 7
+  }
+},
+{
+  "model": "products.product",
+  "pk": 4,
+  "fields": {
+    "title": "Beauty steals under ₹2,000",
+    "price": "1799.00",
+    "original_price": "2499.00",
+    "rating": "4.6",
+    "review_count": 1023,
+    "badge": "limited-deal",
+    "image": "box17_image.jpg",
+    "category": "beauty",
+    "description": "Skincare and beauty essentials at a low price point.",
+    "stock_quantity": 9
+  }
+},
+{
+  "model": "products.product",
+  "pk": 5,
+  "fields": {
+    "title": "Night lights Plug ...",
+    "price": "999.00",
+    "original_price": null,
+    "rating": "3.8",
+    "review_count": 67,
+    "badge": null,
+    "image": "box14_image.jpg",
+    "category": "light",
+    "description": "Plug-in nights with a built in light sensor.",
+    "stock_quantity": 10
+  }
+},
+{
+  "model": "products.product",
+  "pk": 6,
+  "fields": {
+    "title": "New Arrival in Toys",
+    "price": "2399.00",
+    "original_price": null,
+    "rating": "4.1",
+    "review_count": 34,
+    "badge": null,
+    "image": "box18_image.jpg",
+    "category": "toys",
+    "description": "This week's newest toy arrivals.",
+    "stock_quantity": 9
+  }
+},
+{
+  "model": "products.product",
+  "pk": 7,
+  "fields": {
+    "title": "Get your game on",
+    "price": "3299.00",
+    "original_price": null,
+    "rating": "4.7",
+    "review_count": 890,
+    "badge": "best-seller",
+    "image": "box15_image.jpg",
+    "category": "games",
+    "description": "Popular video games and accessories.",
+    "stock_quantity": 6
+  }
+},
+{
+  "model": "products.product",
+  "pk": 8,
+  "fields": {
+    "title": "SAMSUNG Galaxy S24",
+    "price": "74999.00",
+    "original_price": "79999.00",
+    "rating": "4.4",
+    "review_count": 3021,
+    "badge": "amazons-choice",
+    "image": "box10_image.jpg",
+    "category": "electronics",
+    "description": "The latest Samsung Galaxy S24 smartphone.",
+    "stock_quantity": 9
+  }
+},
+{
+  "model": "products.product",
+  "pk": 9,
+  "fields": {
+    "title": "Mens Shearling Aviator Jacket",
+    "price": "3499.00",
+    "original_price": "4499.00",
+    "rating": "4.5",
+    "review_count": 412,
+    "badge": "best-seller",
+    "image": "box19_image.jpg",
+    "category": "clothes",
+    "description": "Warm shearling-lined aviator jacket with a soft faux-fur collar, perfect for cold weather.",
+    "stock_quantity": 12
+  }
+},
+{
+  "model": "products.product",
+  "pk": 10,
+  "fields": {
+    "title": "Boys Formal Trouser Set",
+    "price": "899.00",
+    "original_price": "1199.00",
+    "rating": "4.2",
+    "review_count": 156,
+    "badge": null,
+    "image": "box20_image.jpg",
+    "category": "clothes",
+    "description": "Smart formal trousers for boys, available in classic colors, great for parties and events.",
+    "stock_quantity": 20
+  }
+},
+{
+  "model": "products.product",
+  "pk": 11,
+  "fields": {
+    "title": "Girls Belle Princess Costume Dress",
+    "price": "1299.00",
+    "original_price": null,
+    "rating": "4.6",
+    "review_count": 278,
+    "badge": "amazons-choice",
+    "image": "box21_image.jpg",
+    "category": "toys",
+    "description": "Enchanting yellow princess costume dress with matching accessories for imaginative play.",
+    "stock_quantity": 15
+  }
+},
+{
+  "model": "products.product",
+  "pk": 12,
+  "fields": {
+    "title": "Girls Cinderella Butterfly Dress",
+    "price": "1399.00",
+    "original_price": null,
+    "rating": "4.4",
+    "review_count": 193,
+    "badge": null,
+    "image": "box22_image.jpg",
+    "category": "toys",
+    "description": "Sparkling blue butterfly-themed dress inspired by Cinderella, with a full tulle skirt.",
+    "stock_quantity": 15
+  }
+},
+{
+  "model": "products.product",
+  "pk": 13,
+  "fields": {
+    "title": "Womens Green Cowl Neck Mini Dress",
+    "price": "1899.00",
+    "original_price": "2499.00",
+    "rating": "4.3",
+    "review_count": 97,
+    "badge": "limited-deal",
+    "image": "box23_image.jpg",
+    "category": "clothes",
+    "description": "Elegant green cowl-neck mini dress with long sleeves, perfect for evening outings.",
+    "stock_quantity": 10
+  }
+},
+{
+  "model": "products.product",
+  "pk": 14,
+  "fields": {
+    "title": "Womens Black Ruffle Slip Dress",
+    "price": "1699.00",
+    "original_price": null,
+    "rating": "4.1",
+    "review_count": 64,
+    "badge": null,
+    "image": "box24_image.jpg",
+    "category": "clothes",
+    "description": "Chic black slip dress with a ruffle detail, versatile for both casual and formal wear.",
+    "stock_quantity": 10
+  }
+},
+{
+  "model": "products.product",
+  "pk": 15,
+  "fields": {
+    "title": "Wireless On-Ear Headphones",
+    "price": "1299.00",
+    "original_price": "1799.00",
+    "rating": "4.5",
+    "review_count": 1540,
+    "badge": "best-seller",
+    "image": "box25_image.jpg",
+    "category": "electronics",
+    "description": "Comfortable wireless on-ear headphones with rich bass and long battery life.",
+    "stock_quantity": 25
+  }
+},
+{
+  "model": "products.product",
+  "pk": 16,
+  "fields": {
+    "title": "Electronic Drum Kit with Stool",
+    "price": "12999.00",
+    "original_price": "15999.00",
+    "rating": "4.7",
+    "review_count": 321,
+    "badge": "amazons-choice",
+    "image": "box26_image.jpg",
+    "category": "games",
+    "description": "Complete electronic drum kit with mesh pads, cymbals, stool, and headphones included.",
+    "stock_quantity": 5
+  }
+},
+{
+  "model": "products.product",
+  "pk": 25,
+  "fields": {
+    "title": "Bluetooth Party Speaker",
+    "price": "1999.00",
+    "original_price": "2999.00",
+    "rating": "4.0",
+    "review_count": 88,
+    "badge": "limited-deal",
+    "image": "speaker_new.jpg",
+    "category": "electronics",
+    "description": "Portable Bluetooth speaker with deep bass and 12-hour battery life, perfect for parties and outdoor use.",
+    "stock_quantity": 10
+  }
+},
+{
+  "model": "products.product",
+  "pk": 26,
+  "fields": {
+    "title": "Kids Building Blocks Set",
+    "price": "799.00",
+    "original_price": "999.00",
+    "rating": "4.5",
+    "review_count": 555,
+    "badge": "best-seller",
+    "image": "blocks_new.jpg",
+    "category": "toys",
+    "description": "100-piece colorful building blocks set that boosts creativity and motor skills in kids aged 3+.",
+    "stock_quantity": 20
+  }
+},
+{
+  "model": "products.product",
+  "pk": 29,
+  "fields": {
+    "title": "Ceramic Table Lamp",
+    "price": "1499.00",
+    "original_price": null,
+    "rating": "4.1",
+    "review_count": 88,
+    "badge": null,
+    "image": "lamp_new.jpg",
+    "category": "lamp",
+    "description": "Elegant ceramic table lamp for bedside or study.",
+    "stock_quantity": 10
+  }
+},
+{
+  "model": "products.product",
+  "pk": 30,
+  "fields": {
+    "title": "Men's Cotton Casual Shirt",
+    "price": "999.00",
+    "original_price": "1499.00",
+    "rating": "4.3",
+    "review_count": 175,
+    "badge": "amazons-choice",
+    "image": "shirt_new.jpg",
+    "category": "clothes",
+    "description": "Breathable 100% cotton casual shirt.",
+    "stock_quantity": 25
+  }
+},
+{
+  "model": "products.product",
+  "pk": 31,
+  "fields": {
+    "title": "Herbal Face Wash Combo",
+    "price": "349.00",
+    "original_price": "499.00",
+    "rating": "4.0",
+    "review_count": 95,
+    "badge": "limited-deal",
+    "image": "facewash_new.jpg",
+    "category": "beauty",
+    "description": "Pack of 2 herbal face wash for all skin types.",
+    "stock_quantity": 30
+  }
+},
+{
+  "model": "products.product",
+  "pk": 32,
+  "fields": {
+    "title": "LED Strip Lights 5m",
+    "price": "649.00",
+    "original_price": "899.00",
+    "rating": "4.4",
+    "review_count": 260,
+    "badge": "best-seller",
+    "image": "ledstrip_new.jpg",
+    "category": "lights",
+    "description": "Multicolor LED strip with remote control.",
+    "stock_quantity": 18
+  }
+},
+{
+  "model": "products.product",
+  "pk": 33,
+  "fields": {
+    "title": "Wireless Gaming Controller",
+    "price": "2299.00",
+    "original_price": null,
+    "rating": "4.2",
+    "review_count": 140,
+    "badge": null,
+    "image": "controller_new.jpg",
+    "category": "games",
+    "description": "Wireless controller compatible with PC and consoles.",
+    "stock_quantity": 12
+  }
+},
+{
+  "model": "products.product",
+  "pk": 34,
+  "fields": {
+    "title": "Smart Fitness Band",
+    "price": "1799.00",
+    "original_price": "2299.00",
+    "rating": "4.3",
+    "review_count": 430,
+    "badge": "amazons-choice",
+    "image": "fitband_new.jpg",
+    "category": "electronics",
+    "description": "Fitness band with heart rate and sleep tracking.",
+    "stock_quantity": 20
+  }
+}
+]
