@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product - Amazon Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="simple-header">
+    <a href="index.html" class="logo simple-logo"></a>
+    <a href="index.html" class="simple-back">&larr; Back to results</a>
+    <a href="cart.html" class="nav-cart border" id="cartBtn">
+      <i class="fa-solid fa-cart-shopping"></i>
+      cart
+      <span class="cart-count" id="cartCount">0</span>
+    </a>
+  </header>
+
+  <!-- Everything below is filled in by product.js once the page loads -->
+  <main class="product-page" id="productPage">
+    <p>Loading product...</p>
+  </main>
+
+  <script src="api-config.js"></script>
+  <script src="products.js"></script>
+  <script src="auth.js"></script>
+  <script src="cart.js"></script>
+  <script src="product.js"></script>
+  <script src="chatbot.js"></script>
+
+  <!-- Chat widget markup, same as index.html -->
+  <div class="chat-widget">
+    <button class="chat-toggle" id="chatToggle" aria-label="Open customer support chat">
+      <i class="fa-solid fa-comment-dots"></i>
+    </button>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <span>Customer Support</span>
+        <i class="fa-solid fa-xmark" id="chatClose"></i>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+     <form class="chat-input-row" id="chatForm">
+        <button type="button" id="chatMicBtn" title="Speak your question">
+          <i class="fa-solid fa-microphone"></i>
+        </button>
+        <input type="text" id="chatInput" placeholder="Ask a question..." autocomplete="off">
+        <button type="button" id="chatMuteBtn" title="Mute voice replies">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

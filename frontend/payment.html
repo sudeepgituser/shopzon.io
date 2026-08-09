@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - Shopzon</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="simple-header">
+    <a href="index.html" class="logo simple-logo"></a>
+  </header>
+
+  <main class="cart-page" style="max-width:480px;">
+    <div class="auth-box" id="paymentBox">
+      <div id="paymentPending">
+        <h1 style="font-size:1.3rem;">Complete Payment</h1>
+        <p style="color:#555; margin:10px 0 20px;">Amount to pay</p>
+        <p style="font-size:2rem; font-weight:700; margin-bottom:20px;" id="paymentAmount">\u20B90</p>
+        <p style="font-size:0.8rem; color:#999; margin-bottom:20px;">
+          This is a simulated payment gateway for demo purposes -- no real card/UPI details are processed.
+        </p>
+        <button id="payNowBtn" class="auth-submit">Pay Now</button>
+      </div>
+
+      <div id="paymentProcessing" style="display:none; text-align:center;">
+        <h1 style="font-size:1.2rem;">Processing your payment...</h1>
+        <p style="color:#555; margin-top:10px;">Please don't close this window.</p>
+      </div>
+
+      <div id="paymentSuccess" style="display:none; text-align:center;">
+        <i class="fa-solid fa-circle-check" style="font-size:3rem; color:#2e7d32; margin-bottom:10px;"></i>
+        <h1 style="font-size:1.3rem;">Payment Successful!</h1>
+        <p style="color:#555; margin:10px 0 20px;">Your order has been confirmed.</p>
+        <a href="orders.html" class="auth-submit" style="display:block; text-align:center; text-decoration:none;">View Your Orders</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="api-config.js"></script>
+  <script src="products.js"></script>
+  <script src="auth.js"></script>
+  <script src="cart.js"></script>
+  <script src="payment.js"></script>
+</body>
+</html>

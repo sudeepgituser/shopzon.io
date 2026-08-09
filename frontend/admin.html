@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Shopzon</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="simple-header">
+    <a href="index.html" class="logo simple-logo"></a>
+    <a href="index.html" class="simple-back">&larr; Back to shop</a>
+    <a href="analytics.html" class="simple-back" style="margin-left:auto;">Analytics <i class="fa-solid fa-chart-line"></i></a>
+  </header>
+
+  <main class="cart-page">
+    <h1>Admin Dashboard</h1>
+    <p style="color:#555; margin-bottom:20px;">All customer orders, most recent first.</p>
+    <div id="adminOrdersContainer"><p>Loading...</p></div>
+  </main>
+
+  <script src="api-config.js"></script>
+  <script src="products.js"></script>
+  <script src="auth.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

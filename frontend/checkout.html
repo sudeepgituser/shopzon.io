@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Shopzon</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="simple-header">
+    <a href="index.html" class="logo simple-logo"></a>
+    <a href="cart.html" class="simple-back">&larr; Back to cart</a>
+  </header>
+
+  <main class="checkout-page">
+    <h1>Checkout</h1>
+
+    <div class="checkout-steps">
+      <div class="checkout-step active" data-step="1">
+        <span class="checkout-step-num">1</span> Address
+      </div>
+      <div class="checkout-step-line"></div>
+      <div class="checkout-step" data-step="2">
+        <span class="checkout-step-num">2</span> Payment
+      </div>
+    </div>
+
+    <div class="checkout-grid">
+      <div class="checkout-form-col">
+
+        <!-- STEP 1: Address -->
+        <section class="checkout-panel" id="stepAddress">
+          <h2>Delivery Details</h2>
+
+          <div id="savedAddressList"></div>
+
+          <button type="button" class="checkout-add-address-btn" id="addNewAddressBtn">
+            <i class="fa-solid fa-plus"></i> Add a new address
+          </button>
+
+          <div class="auth-box" id="newAddressForm" style="display:none; margin-top:14px;">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="e.g. Sudeep S R">
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" placeholder="e.g. 9876543210">
+
+            <label for="emailAddr">Email</label>
+            <input type="email" id="emailAddr" placeholder="you@example.com">
+
+            <label for="addressLine">Address</label>
+            <textarea id="addressLine" rows="3" placeholder="House no, street, area" style="width:100%; padding:8px; border:1px solid #a6a6a6; border-radius:4px; font-family:inherit; font-size:1rem; resize:vertical;"></textarea>
+
+            <div style="display:flex; gap:10px; margin-top:12px;">
+              <div style="flex:1;">
+                <label for="city">City</label>
+                <input type="text" id="city" placeholder="City">
+              </div>
+              <div style="flex:1;">
+                <label for="stateField">State</label>
+                <input type="text" id="stateField" placeholder="State">
+              </div>
+              <div style="flex:1;">
+                <label for="pincode">PIN Code</label>
+                <input type="text" id="pincode" placeholder="PIN">
+              </div>
+            </div>
+
+            <label style="display:flex; align-items:center; gap:6px; margin-top:12px; font-weight:400;">
+              <input type="checkbox" id="setDefaultAddress" style="width:auto;"> Set as default address
+            </label>
+
+            <p class="auth-error" id="addressError"></p>
+            <button type="button" class="auth-submit" id="saveAddressBtn" style="margin-top:12px;">Save Address</button>
+          </div>
+
+          <p class="auth-error" id="stepAddressError"></p>
+          <button type="button" class="checkout-next-btn" id="toPaymentBtn">Continue to Payment</button>
+        </section>
+
+        <!-- STEP 2: Payment -->
+        <section class="checkout-panel" id="stepPayment" style="display:none;">
+          <h2>Payment Method</h2>
+
+          <div class="payment-method-grid">
+            <label class="payment-method-card">
+              <input type="radio" name="paymentMethod" value="cod" checked>
+              <i class="fa-solid fa-money-bill-wave"></i>
+              <strong>Cash on Delivery</strong>
+              <p>Pay when it arrives</p>
+            </label>
+
+            <label class="payment-method-card">
+              <input type="radio" name="paymentMethod" value="online">
+              <i class="fa-solid fa-credit-card"></i>
+              <strong>Card</strong>
+              <p>Credit / Debit card</p>
+            </label>
+
+            <label class="payment-method-card">
+              <input type="radio" name="paymentMethod" value="online">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              <strong>UPI</strong>
+              <p>Google Pay, PhonePe, etc.</p>
+            </label>
+
+            <label class="payment-method-card">
+              <input type="radio" name="paymentMethod" value="online">
+              <i class="fa-solid fa-building-columns"></i>
+              <strong>Netbanking</strong>
+              <p>All major banks</p>
+            </label>
+          </div>
+
+          <div class="payment-subform" id="paymentSubform"></div>
+
+          <div class="checkout-step-actions">
+            <button type="button" class="checkout-back-btn" id="backToAddressBtn">&larr; Back</button>
+            <button type="button" class="auth-submit" id="placeOrderBtn" style="flex:1;">Place Order</button>
+          </div>
+          <p class="auth-error" id="checkoutError"></p>
+        </section>
+
+      </div>
+
+      <div class="checkout-summary-col">
+        <div class="auth-box checkout-summary-sticky">
+          <h2 style="font-size:1.1rem; margin-bottom:12px;">Order Summary</h2>
+          <div id="checkoutItems"></div>
+
+          <div class="coupon-box">
+            <label for="couponInput">Have a coupon?</label>
+            <div class="coupon-input-row">
+              <input type="text" id="couponInput" placeholder="Enter code">
+              <button type="button" id="applyCouponBtn">Apply</button>
+            </div>
+            <p id="couponMessage" class="coupon-message"></p>
+          </div>
+
+          <p class="cart-total" id="checkoutSubtotal" style="margin-top:12px;">Subtotal: Rs.0</p>
+          <p class="cart-total coupon-discount-line" id="checkoutDiscount" style="display:none;">Discount: -Rs.0</p>
+          <p class="cart-total" id="checkoutTotal" style="margin-top:4px;">Total: Rs.0</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="api-config.js"></script>
+  <script src="products.js"></script>
+  <script src="auth.js"></script>
+  <script src="cart.js"></script>
+  <script src="checkout.js"></script>
+</body>
+</html>

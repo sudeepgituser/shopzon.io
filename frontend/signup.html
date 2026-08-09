@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account - shopzon Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="auth-page">
+    <a href="index.html" class="auth-logo"></a>
+
+    <div id="loggedInBar" style="display:none; margin-bottom:15px; font-size:0.85rem; color:#555;">
+      Logged in as <strong id="loggedInBarName"></strong> &mdash;
+      <a href="#" id="loggedInBarLogout" style="color:#007185;">Logout</a>
+    </div>
+
+    <div class="auth-box">
+      <h1>Create account</h1>
+
+      <form id="signupForm">
+        <label for="signupUsername">Username</label>
+        <input type="text" id="signupUsername" placeholder="e.g. priya123" required>
+
+        <label for="signupEmail">Email</label>
+        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="At least 6 characters" minlength="6" required>
+
+        <label for="signupPasswordConfirm">Re-enter password</label>
+        <input type="password" id="signupPasswordConfirm" placeholder="Re-enter your password" minlength="6" required>
+
+        <p class="auth-error" id="signupError"></p>
+
+        <button type="submit" class="auth-submit" id="signupSubmitBtn">Create your shopzon Clone account</button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+      <p class="auth-switch"><a href="index.html">&larr; Back to shopping</a></p>
+    </div>
+  </div>
+
+  <script src="api-config.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const username = document.getElementById('signupUsername').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const password = document.getElementById('signupPassword').value;
+      const passwordConfirm = document.getElementById('signupPasswordConfirm').value;
+      const errorBox = document.getElementById('signupError');
+      const submitBtn = document.getElementById('signupSubmitBtn');
+
+      if (password !== passwordConfirm) {
+        errorBox.textContent = 'Passwords do not match.';
+        return;
+      }
+
+      errorBox.textContent = '';
+      submitBtn.textContent = 'Creating account...';
+      submitBtn.disabled = true;
+
+      const result = await registerUser(username, email, password);
+
+      if (result.ok) {
+        window.location.href = 'index.html';
+      } else {
+        errorBox.textContent = result.error;
+        submitBtn.textContent = 'Create your shopzon Clone account';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopzon Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="nav-logo border">
+        <div class="logo"></div>
+      </div>
+
+      <div class="nav-address border">
+        <p class="add-first"> Deliver to</p>
+        <div class="add-icon">
+          <i class="fa-solid fa-location-dot"></i>
+          <p class="add-second">India</p>
+        </div>
+      </div>
+
+      <div class="nav-search">
+        <select class="search-select" id="categorySelect">
+          <option value="all">All</option>
+          <option value="toys">Toys</option>
+          <option value="lamp">Home & Kitchen</option>
+          <option value="clothes">Fashion</option>
+          <option value="beauty">Beauty</option>
+          <option value="lights">Lighting</option>
+          <option value="games">Games</option>
+          <option value="electronics">Electronics</option>
+        </select>
+
+        <input placeholder="Search shopzon" class="search-input" id="searchInput">
+        <div class="search-icon" id="searchBtn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+
+      <div class="language-one">
+        <label for="language-three">Select Language</label>
+        <select id="language-three" onchange="changeLanguage()">
+          <option value="en">English-En</option>
+          <option value="hi">Hindi-Hi</option>
+          <option value="es">Spanish-Sp</option>
+          <option value="fr">French-Fr</option>
+          <option value="de">German-Ge</option>
+        </select>
+      </div>
+
+       <a class="nav-singin border" id="signInLink" href="login.html">
+          <p><span id="signInLabel">Hello, sign in</span></p>
+          <p class="nav-second" id="signInSubtext">Account & lists</p>
+       </a>
+
+      <a class="nav-returns border" href="orders.html">Returns<br>&amp; Order</a>
+
+      <a class="nav-login border" id="adminPanelLink" href="admin.html" title="Admin Dashboard" style="display:none;">
+        <i class="fa-solid fa-gauge"></i>
+      </a>
+
+      <a class="nav-cart border" id="cartBtn" href="cart.html">
+        <i class="fa-solid fa-cart-shopping"></i>
+        cart
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+   </div>
+
+    <div class="panel">
+          <div class="panel-all" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
+            All
+          </div>
+              <div class="panel-ops">
+                      <p>Today's Deals</p>
+                      <p>Customer Service</p>
+                      <p>Registry</p>
+                      <p>Gift Cards</p>
+                      <p>Sell</p>
+              </div>
+              <div class="panel-deals">
+                  Shop deals in Electronics
+              </div>
+    </div>
+
+    <div class="side-menu" id="sideMenu">
+      <div class="side-menu-header">
+        <span id="sideMenuSignInLabel">Hello, sign in</span>
+        <i class="fa-solid fa-xmark" id="closeMenu"></i>
+      </div>
+      <ul>
+        <li>Today's Deals</li>
+        <li>Customer Service</li>
+        <li>Registry</li>
+        <li>Gift Cards</li>
+        <li>Sell</li>
+      </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
+  </header>
+
+<div class="hero-section">
+  <video class="hero-video fit-contain" autoplay muted loop playsinline>
+    <source src="Shopzonv.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <!-- your existing text/logo content goes here -->
+  </div>
+</div>
+
+<div class="shop-section" id="shopSectionTop"></div>
+
+<div class="banner-slider-outer" id="bannerSliderOuter"></div>
+
+<div class="shop-section" id="shopSectionBottom"></div>
+
+      <p class="no-results" id="noResults" style="display:none;">No products match your search.</p>
+
+      <footer>
+        <div class="foot-panel1" id="backToTop">
+          Back to Top
+        </div>
+
+        <div class="foot-panel2">
+          <ul>
+          <p>Get to Know Us</p>
+            <a href="#">Careers</a>
+            <a href="#">Blog</a>
+            <a href="#">About shopzon</a>
+            <a href="#">Investor Relations</a>
+            <a href="#">shopzon Devices</a>
+            <a href="#">shopzon Science</a>
+          </ul>
+          <ul>
+            <p> Make Money with Us</p>
+            <a href="#">Sell products on shopzon</a>
+            <a href="#">Sell on shopzon Business</a>
+            <a href="#">Sell apps on shopzon</a>
+            <a href="#">Become an Affiliate</a>
+            <a href="#">Advertise Your Products</a>
+            <a href="#">Self-Publish with Us</a>
+            <a href="#">Host a shopzon Hub</a>
+            <a href="#">See More Make Money with Us</a>
+          </ul>
+          <ul>
+            <p>shopzon Payment Products</p>
+             <a href="#">shopzon Business Card </a>
+             <a href="#">Shop with Points</a>
+             <a href="#">Reload Your Balance</a>
+             <a href="#">shopzon Currency Converter</a>
+          </ul>
+          <ul>
+            <p> Let Us Help You</p>
+            <a href="#">shopzon and COVID-19</a>
+            <a href="#">Your Account</a>
+            <a href="#">Your Orders</a>
+            <a href="#">Shipping Rates & Policies</a>
+            <a href="#">Returns & Replacements</a>
+            <a href="#">Manage Your Content and Devices</a>
+            <a href="#">Help</a>
+          </ul>
+        </div>
+
+        <div class="foot-panel3">
+          <div class="logo"></div>
+        </div>
+
+        <div class="foot-panel4">
+          <div class="pages">
+            <a href="#">Conditions of Use</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Your Ads Privacy Choices</a>
+          </div>
+          <div class="copyright">
+            © 1996-2026, shopzon.com, Inc. or its affiliates
+          </div>
+        </div>
+      </footer>
+
+      <!-- Customer support chat widget (see chatbot.js) -->
+      <div class="chat-widget">
+        <button class="chat-toggle" id="chatToggle" aria-label="Open customer support chat">
+          <i class="fa-solid fa-comment-dots"></i>
+        </button>
+
+        <div class="chat-window" id="chatWindow">
+          <div class="chat-header">
+            <span>Customer Support</span>
+            <i class="fa-solid fa-xmark" id="chatClose"></i>
+          </div>
+          <div class="chat-messages" id="chatMessages"></div>
+          <form class="chat-input-row" id="chatForm">
+            <button type="button" id="chatMicBtn" title="Speak your question">
+              <i class="fa-solid fa-microphone"></i>
+            </button>
+            <input type="text" id="chatInput" placeholder="Ask a question..." autocomplete="off">
+            <button type="button" id="chatMuteBtn" title="Mute voice replies">
+              <i class="fa-solid fa-volume-high"></i>
+            </button>
+            <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <script src="api-config.js"></script>
+  <script src="products.js"></script>
+      <script src="cart.js"></script>
+      <script src="auth.js"></script>
+      <script src="script.js"></script>
+      <script src="chatbot.js"></script>
+      <script src="banner-slider.js"></script>
+</body>
+</html>

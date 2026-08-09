@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - Shopzon Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="auth-page">
+    <a href="index.html" class="auth-logo"></a>
+
+    <div id="loggedInBar" style="display:none; margin-bottom:15px; font-size:0.85rem; color:#555;">
+      Logged in as <strong id="loggedInBarName"></strong> &mdash;
+      <a href="#" id="loggedInBarLogout" style="color:#007185;">Logout</a>
+    </div>
+
+    <div class="auth-box">
+      <h1>Sign in</h1>
+
+      <form id="loginForm">
+        <label for="loginUsername">Username</label>
+        <input type="text" id="loginUsername" placeholder="e.g. priya123" required>
+
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="Your password" required>
+
+        <p class="auth-error" id="loginError"></p>
+
+        <button type="submit" class="auth-submit" id="loginSubmitBtn">Sign in</button>
+      </form>
+
+      <p class="auth-switch"><a href="forgot-password.html">Forgot your password?</a></p>
+      <p class="auth-switch">New here? <a href="signup.html">Create an account</a></p>
+      <p class="auth-switch"><a href="index.html">&larr; Back to shopping</a></p>
+    </div>
+  </div>
+
+  <script src="api-config.js"></script>
+  <script src="auth.js"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const username = document.getElementById('loginUsername').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const errorBox = document.getElementById('loginError');
+      const submitBtn = document.getElementById('loginSubmitBtn');
+
+      if (!username || !password) {
+        return;
+      }
+
+      errorBox.textContent = '';
+      submitBtn.textContent = 'Signing in...';
+      submitBtn.disabled = true;
+
+      const result = await loginUser(username, password);
+
+      if (result.ok) {
+        const params = new URLSearchParams(window.location.search);
+        const next = params.get('next');
+        window.location.href = next ? next : 'index.html';
+      } else {
+        errorBox.textContent = result.error;
+        submitBtn.textContent = 'Sign in';
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

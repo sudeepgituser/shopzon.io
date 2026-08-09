@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics - Shopzon Admin</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="simple-header">
+    <a href="index.html" class="logo simple-logo"></a>
+    <a href="admin.html" class="simple-back">&larr; Back to Orders</a>
+  </header>
+
+  <main class="cart-page">
+    <h1>Analytics Dashboard</h1>
+    <p style="color:#555; margin-bottom:20px;">Revenue, orders, and top products over the last 30 days.</p>
+
+    <div id="analyticsLoading"><p>Loading analytics...</p></div>
+
+    <div id="analyticsContent" style="display:none;">
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-label">Total Revenue</div>
+          <div class="stat-card-value" id="statRevenue">Rs.0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Total Orders</div>
+          <div class="stat-card-value" id="statOrders">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Total Customers</div>
+          <div class="stat-card-value" id="statCustomers">0</div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card chart-card-wide">
+          <h2>Revenue - Last 30 Days</h2>
+          <canvas id="revenueChart"></canvas>
+        </div>
+
+        <div class="chart-card">
+          <h2>Top 10 Products</h2>
+          <canvas id="topProductsChart" height="320"></canvas>
+        </div>
+        
+        <div class="chart-card">
+          <h2>Orders by Status</h2>
+          <canvas id="statusChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+
+    <p id="analyticsError" class="auth-error"></p>
+  </main>
+
+  <script src="api-config.js"></script>
+  <script src="products.js"></script>
+  <script src="auth.js"></script>
+  <script src="analytics.js"></script>
+</body>
+</html>
