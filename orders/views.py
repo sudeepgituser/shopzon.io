@@ -1,4 +1,4 @@
-import os
+
 import uuid
 from django.utils import timezone
 from rest_framework import generics, permissions, status
