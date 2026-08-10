@@ -1,3 +1,4 @@
+import resend
 import uuid
 from django.utils import timezone
 from rest_framework import generics, permissions, status
@@ -133,32 +134,20 @@ class CancelOrderView(APIView):
 
         # Best-effort email -- cancellation itself should still succeed
         # even if the email send fails for any reason.
-        if order.user.email:
-            try:
-                subject = 'Your Shopzon Order #{} has been cancelled'.format(order.id)
-                message = (
-                    'Hi {},\n\n'
-                    'Your order #{} was cancelled on {}.\n\n'
-                    '{}'
-                    'Order Total: Rs.{}\n\n'
-                    'If you have any questions, just reply to this email.\n\n'
-                    'Thank you for shopping with Shopzon.'
-                ).format(
-                    order.user.username,
-                    order.id,
-                    order.cancelled_at.strftime('%d %B %Y, %I:%M %p'),
-                    'A refund has been initiated and will be processed shortly.\n\n' if order.refund_status == 'refund_initiated' else '',
-                    order.total,
-                )
-                send_mail(
-                    subject, message, settings.DEFAULT_FROM_EMAIL,
-                    [order.user.email], fail_silently=True,
-                )
-            except Exception:
-                pass
+        try:
+            api_key = os.environ.get('RESEND_API_KEY')
+            if not api_key:
+                return Response({'error': 'DEBUG: RESEND_API_KEY is not set on the server.'}, status=status.HTTP_502_BAD_GATEWAY)
 
-        return Response(OrderSerializer(order).data, status=status.HTTP_200_OK)
-
+            resend.api_key = api_key
+            result = resend.Emails.send({
+                'from': 'Shopzon <onboarding@resend.dev>',
+                'to': [order.user.email],
+                'subject': subject,
+                'text': message,
+            })
+        except Exception as e:
+            return Response({'error': 'DEBUG: ' + type(e).__name__ + ': ' + str(e)}, status=status.HTTP_502_BAD_GATEWAY)
 
 class AdminCollectCashView(APIView):
     # POST /api/orders/admin/<id>/collect-cash/
@@ -218,13 +207,13 @@ class NotifyDeliveryView(APIView):
         ).format(order.user.username, order.id, delivery_date, order.total, order.delivery_address)
 
         try:
-            send_mail(
-                subject,
-                message,
-                settings.DEFAULT_FROM_EMAIL,
-                [order.user.email],
-                fail_silently=False,
-            )
+            resend.api_key = os.environ.get('RESEND_API_KEY')
+            resend.Emails.send({
+                'from': 'Shopzon <onboarding@resend.dev>',
+                'to': [order.user.email],
+                'subject': subject,
+                'text': message,
+            })
         except Exception as e:
             return Response({'error': 'Failed to send email: ' + str(e)}, status=status.HTTP_502_BAD_GATEWAY)
 
