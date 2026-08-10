@@ -1,4 +1,4 @@
-import resend
+import os
 import uuid
 from django.utils import timezone
 from rest_framework import generics, permissions, status
@@ -12,6 +12,7 @@ from django.db.models import Sum, Count, F
 from django.db.models.functions import TruncDate
 from datetime import timedelta
 from .models import OrderItem
+import resend
 
 
 class OrderListCreateView(generics.ListCreateAPIView):
