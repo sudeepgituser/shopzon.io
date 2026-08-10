@@ -1,9 +1,9 @@
-﻿from django.urls import path
+from django.urls import path
 from .views import (
     OrderListCreateView, AdminOrderListView, AdminOrderUpdateView,
     ConfirmPaymentView, AdminCollectCashView, CancelOrderView,
     NotifyDeliveryView, NotifyWhatsAppView, AdminAnalyticsView, 
-    ApplyCouponView
+    ApplyCouponView, AdminRevenueAnalyticsView
 )
 
 urlpatterns = [
@@ -16,5 +16,6 @@ urlpatterns = [
     path('admin/<int:pk>/collect-cash/', AdminCollectCashView.as_view(), name='admin-collect-cash'),
     path('<int:order_id>/confirm-payment/', ConfirmPaymentView.as_view(), name='confirm-payment'),
     path('<int:order_id>/cancel/', CancelOrderView.as_view(), name='cancel-order'),
+    path('admin/analytics/revenue/', AdminRevenueAnalyticsView.as_view(), name='admin-revenue-analytics'),
     path('apply-coupon/', ApplyCouponView.as_view(), name='apply-coupon'),
 ]

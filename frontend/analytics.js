@@ -1,4 +1,4 @@
-// analytics.js
+﻿// analytics.js
 //
 // Runs only on analytics.html. Fetches aggregated stats from
 // /api/orders/admin/analytics/ and renders them as three charts using
@@ -84,6 +84,7 @@ function renderAnalytics(data) {
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: { y: { beginAtZero: true } },
     },
@@ -104,6 +105,7 @@ function renderAnalytics(data) {
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       indexAxis: 'y',
       plugins: { legend: { display: false } },
       scales: { x: { beginAtZero: true, ticks: { stepSize: 1 } } },
@@ -125,6 +127,7 @@ function renderAnalytics(data) {
     },
     options: {
       responsive: true,
+      maintainAspectRatio: false,
       plugins: { legend: { position: 'bottom' } },
     },
   });

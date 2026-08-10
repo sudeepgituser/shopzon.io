@@ -2631,3 +2631,12 @@ ul a:hover {
         height: 160px;
     }
 }
+/* ---------- Fix Chart.js canvases growing unbounded ---------- */
+.chart-card {
+    position: relative;
+}
+
+.chart-card canvas {
+    width: 100% !important;
+    height: 280px !important;
+}

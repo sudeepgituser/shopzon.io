@@ -378,3 +378,45 @@ class ApplyCouponView(APIView):
             'discount_amount': discount,
             'new_total': round(order_total - discount, 2),
         })
+
+class AdminRevenueAnalyticsView(APIView):
+    # GET /api/orders/admin/analytics/revenue/
+    # Revenue over time -- counts only orders that actually generated
+    # revenue (Paid online, or Cash Collected for COD). Pending/failed/
+    # cancelled orders are excluded since no money actually came in.
+    permission_classes = [permissions.IsAdminUser]
+
+    def get(self, request):
+        from django.db.models import Sum, Count
+        from django.db.models.functions import TruncDate
+
+        revenue_orders = Order.objects.filter(payment_status__in=['paid', 'cash_collected'])
+
+        daily = (
+            revenue_orders
+            .annotate(day=TruncDate('created_at'))
+            .values('day')
+            .annotate(revenue=Sum('total'), order_count=Count('id'))
+            .order_by('day')
+        )
+
+        daily_data = [
+            {
+                'date': entry['day'].isoformat(),
+                'revenue': float(entry['revenue']),
+                'order_count': entry['order_count'],
+            }
+            for entry in daily
+        ]
+
+        totals = revenue_orders.aggregate(total_revenue=Sum('total'), total_orders=Count('id'))
+        total_revenue = float(totals['total_revenue'] or 0)
+        total_orders = totals['total_orders'] or 0
+        avg_order_value = round(total_revenue / total_orders, 2) if total_orders else 0
+
+        return Response({
+            'daily': daily_data,
+            'total_revenue': total_revenue,
+            'total_orders': total_orders,
+            'avg_order_value': avg_order_value,
+        })
