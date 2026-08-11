@@ -1,4 +1,4 @@
-\# Shopzon — Full-Stack E-Commerce Clone
+\# Shopzon — Full-Stack E-Commerce site
 
 
 
