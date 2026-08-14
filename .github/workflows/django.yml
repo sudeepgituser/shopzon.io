@@ -42,7 +42,7 @@ jobs:
         pip install flake8
     - name: Lint with flake8
       run:
-        flake8 --max-line-length=120 --exclude=myenv, migrations, staticfiles
+        flake8 --max-line-length=120 --exclude=myenv,migrations,staticfiles,frontend .
     - name: Run Tests
       env:
         DJANGO_SECRET_KEY: ci-test-key-not-real
