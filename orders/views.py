@@ -137,13 +137,29 @@ class CancelOrderView(APIView):
 
         # Best-effort email -- cancellation itself should still succeed
         # even if the email send fails for any reason.
+        subject = 'Your Shopzon Order #{} has been cancelled'.format(order.id)
+        message = (
+            'Hi {},\n\n'
+            'Your order #{} was cancelled on {}.\n\n'
+            '{}'
+            'Order Total: Rs.{}\n\n'
+            'If you have any questions, just reply to this email.\n\n'
+            'Thank you for shopping with Shopzon.'
+        ).format(
+            order.user.username,
+            order.id,
+            order.cancelled_at.strftime('%d %B %Y, %I:%M %p'),
+            'A refund has been initiated and will be processed shortly.\n\n' if order.refund_status == 'refund_initiated' else '',
+            order.total,
+        )
+
         try:
             api_key = os.environ.get('RESEND_API_KEY')
             if not api_key:
                 return Response({'error': 'DEBUG: RESEND_API_KEY is not set on the server.'}, status=status.HTTP_502_BAD_GATEWAY)
 
             resend.api_key = api_key
-            result = resend.Emails.send({
+            resend.Emails.send({
                 'from': 'Shopzon <onboarding@resend.dev>',
                 'to': [order.user.email],
                 'subject': subject,
